@@ -7,7 +7,15 @@ app.use(cors());
 app.use(express.json());
 
 app.get('/',(req,res)=>{
-    res.send('Hello World')
+    res.sendFile(
+      path.json(_dirname,"../mern-client/index.html"),
+      function(err){
+        if(err){
+        res.status(500).send(err);
+        }
+
+      }
+    );
 })
 
 
